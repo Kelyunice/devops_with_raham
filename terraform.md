@@ -2161,9 +2161,18 @@ STEP-3: RUN INIT COMMAND (terraform init)
 STEP-4: DO AUTHENTICATION (gcloud init)
 
 STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
+================================================================================================
 
+                          PERSONAL NOTES 
 
-
+1- to install Terraform: first you need to install chocolate on window which is package management
+                    - on your browser search(how to install chocolatey on windows 110
+					- check version (choco --version)
+					- choco install terraform -y
+					- check terraform version ( terraform version)
+					- on your broswer search (install AWS CLI on windows 11 ==>> irm https://awscli.amazonaws.com/v2/install.ps1 | iex) 
+					- 
+- 
 
 
 
