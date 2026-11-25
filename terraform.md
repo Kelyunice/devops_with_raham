@@ -2182,6 +2182,7 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 				                        - compute EC2 ==>> main.yf ( EC2, asg, Lb)
 										- storage  ==>> main.tf ( s3, db, ebd, EfS)
 										- network ==>> ( VPc, subnets, route tables, internet gateways)
+				   - if you already have resources on aws that you created manually you can use the "import" command
 
 
 
