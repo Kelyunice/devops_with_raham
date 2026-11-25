@@ -2175,6 +2175,13 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 					   check if python installed
 					- go to aws account and create user with admin privilege's. still inside the user==>> create an access key under "security credentials"
 					- to to your powershell terminall and type (aws configure and paste the access key)
+2- write your code This is made up 3 sections. resources, provider, and variables sections
+                   - create the resource.tf file and provider.tf where you define what your resources will look like
+				   - If you want to define the size of a vm use (root_block_device ) in the resource.tf file
+				   - usually each resource type needs to be in a seperate folder
+				                        - compute EC2 ==>> main.yf ( EC2, asg, Lb)
+										- storage  ==>> main.tf ( s3, db, ebd, EfS)
+										- network ==>> ( VPc, subnets, route tables, internet gateways)
 
 
 
