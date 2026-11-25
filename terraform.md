@@ -2183,6 +2183,20 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 										- storage  ==>> main.tf ( s3, db, ebd, EfS)
 										- network ==>> ( VPc, subnets, route tables, internet gateways)
 				   - if you already have resources on aws that you created manually you can use the "import" command
+				   - If you want to create vm with different names you can make use of (for_each = toset)
+				   - if you want to prevent an object from being destroyed in terrafor you use
+				                                                              lifecycle { 
+																			    prevent_destroy = true 
+																			  }
+																			      OR you could use
+																				create_before_destroy = true
+																				
+																				Or
+
+																				ignore_changes = all
+
+																				you can define any custom role
+				   - if you have a drift( the current state has been modified and its different from actual state) to find the drift ==>> terraform plan
 
 
 
