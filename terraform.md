@@ -2197,6 +2197,11 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 
 																				you can define any custom role
 				   - if you have a drift( the current state has been modified and its different from actual state) to find the drift ==>> terraform plan
+				   - The concept of parallelisme is when terraform creates e.g 50 vm at the same instead of 10 , 10 each which is the default define.
+				                     command ==>> terraform apply -auto-approve-parallelism=50
+				   - Anytime you do (plan , apply or destroy) any command infos is stored on the state file which on your local. This is a limitation
+				      because if other people in the org want to use the state file they would not have access. It's necessary to have a centralized,                                  consistent, and secure storage mechanism for the state file. Amazon S3 is a popular choice for this , and when combines with Dynamo DB                           locking, it ensures safe, consistent operations. ( statefile locking is when 2 dev are trying to perform an operation on the statefile it                        will be locked to prevent concurrence). It will lock for the 2n dev until the first has completed before the second dev can proceed.
+					     Error Message: resource temporarily unavailable
 
 
 
