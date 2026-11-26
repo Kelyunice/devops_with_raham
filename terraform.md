@@ -2216,11 +2216,18 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
                         After adding this to your resource file always do "terraform init" ==>> "terraform apply"
 						                    Use -migrate-state if moving from local state or "terraform init -reconfigure"
 
-
-
-
-
-
+                   - To bring back the statefile to local ,  you just have to remove the backend block on the 
+				         code or define the backend "local" and 
+				         path to the file ===>> terraform init -reconfigure
+						                  ===>> Use -migrate-state if moving from local state.
+						                  ===>> terraform apply -auto-approve
+										 
+                   - Importance of using statefile in s3 instead of local
+				                           1- collaboration- anybody can get the s3 when assigned proper permissions
+										   2- security
+										   3- 
+                        
+                   -  if you want to see resources that are currently running on aws "terraform state list"
 
 
 
