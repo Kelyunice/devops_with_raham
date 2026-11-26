@@ -2202,7 +2202,19 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 				   - Anytime you do (plan , apply or destroy) any command infos is stored on the state file which on your local. This is a limitation
 				      because if other people in the org want to use the state file they would not have access. It's necessary to have a centralized,                                  consistent, and secure storage mechanism for the state file. Amazon S3 is a popular choice for this , and when combines with Dynamo DB                           locking, it ensures safe, consistent operations. ( statefile locking is when 2 dev are trying to perform an operation on the statefile it                        will be locked to prevent concurrence). It will lock for the 2n dev until the first has completed before the second dev can proceed.
 					     Error Message: resource temporarily unavailable
+				   - To store the statefile on s3 you can go to your browser and search for ( terraform s3 backend)
+				               terraform {
+                                 backend "s3" {
+                                   bucket = "create any bucket on aws and use its name"
+                                   key = "which file you what to upload"
+                                   region = "us-east-1"
+                                   encrypt = true
+                                   use_lockfile = true
+                                 }
+                                }
 
+                        After adding this to your resource file always do "terraform init" ==>> "terraform apply"
+						                    Use -migrate-state if moving from local state or "terraform init -reconfigure"
 
 
 
