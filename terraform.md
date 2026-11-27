@@ -2228,6 +2228,16 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 										   3- 
                         
                    -  if you want to see resources that are currently running on aws "terraform state list"
+				   - you can rename an existing resource by doing (terraform state mv old new)
+				   - if you do terraform state rm resource ( it will lost the information from the state file and terrafrom will no longer track it)
+
+				   - Terraform state command is used for advanced state management. There are some cases where you may need to modify the terraform state.                             rather than modify the state directly use these commands
+
+				                1- terraform state list: to list the resource
+								2- terraform state show aws_subnet.two: to show specific resource info
+								3- terraform state mv aws_subnet.two aws_subnet.three: to rename block
+								4- terraform state rm aws_subnet.three: to remove the state information of a resource
+								5- terraform state pull : to pull state file info from backend
 
 
 
