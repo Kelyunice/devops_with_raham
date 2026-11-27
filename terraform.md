@@ -2239,6 +2239,58 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 								4- terraform state rm aws_subnet.three: to remove the state information of a resource
 								5- terraform state pull : to pull state file info from backend
 
+                   - Terraform TAINT allows you to manually mark a resource for recreation. In real life some times resources fails to creat so to create them                        we use taint.  
+				                        In a new version we use -replace option
+
+                   - TO TAINT : terraform taint aws_instance.one[0]
+				   - TO UNTAINT: terraform iuntaint aws_instance.one[0]
+				                 terraform --auto-approve
+
+				   - to replace : terraform apply ==auto-approve-replace="aws_instance.one[0]"
+
+				   - If you create a resource manualy the state file will not have it . To tract it we use the import block in the main.tf 
+				       together with the provider
+
+					         import {
+							   id = "i-server id"
+							   to = aws_instance.demo
+							 }
+                                  then you do terrafrom -migrate-state
+								              terraform plan -generate-config-out=ec2.tf
+
+                    - if you want to save the output of a file for future use
+					                                   terraform plan -output (fileename)
+													   terraform apply (newfilename)
+
+
+                    - HOW TO COMMENT IN TERRAFORM
+
+					    1- # this is a single line comment
+						2- // this is also a single line comment
+						3- /* this is multi-line comment  */
+						never comment a code and do apply because terraform will think you want to delete the code
+						
+                   - In terraform we debug by using the env variable 
+				                   export TF_LOG=TRACE
+
+								   to store the output of debug in a file 
+								      terraform plan (right after)
+
+									  export TF_LOG_PATH="logs.txt"
+									  $env:TF_LOG_PATH="logs.txt"
+									  $env:TF_LOG="TRACE"
+									  terraform init
+									  terraform plan
+
+					the hierarchy of TF_LOG ====>> TRACE, DEBUG, INFO, WARN or ERROR (what ever you put only the remaining part will be displayed
+
+
+
+
+
+
+
+
 
 
 
