@@ -2270,7 +2270,7 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 						3- /* this is multi-line comment  */
 						never comment a code and do apply because terraform will think you want to delete the code
 						
-                   - In terraform we debug by using the env variable 
+                  interview - In terraform we debug by using the env variable 
 				                   export TF_LOG=TRACE
 
 								   to store the output of debug in a file 
@@ -2284,10 +2284,27 @@ STEP-5: RUN PLAN & APPLY COMMANDS (terraform plan && terraform apply)
 
 					the hierarchy of TF_LOG ====>> TRACE, DEBUG, INFO, WARN or ERROR (what ever you put only the remaining part will be displayed
 
+==================================================================================================
 
-
-
-
+      1- PROVIDER BLOCK
+	        the provider block is where we define the provider where we want to create the infra. 
+			To check provider: https://registry.terraform.io/browse/providers
+			
+			  - OFFICIAL PROVIDER: these are managed by terraform
+			  - PARTNER PROVIDER: managed by your company
+			  - PARTNER PREMIUM PROVIDER: these are managed by 3rd party companies
+			  - COMMUNITY PROVIDERS: these are managed by individuals
+            interview Question: can you use multiple providers in a single block? 
+			                            ANSWER: YES
+            When downloading providers we use a concept call VERSION constrain. Here instead of downloading the exact version we use
+			                          ">=5.15.0" which will search any available version close to this
+									  "<= 5.15.0" to get something less
+									  " ~>5.15.0" to get a version approximately close to . it gets only the nearest patch version
+									  5=major version
+									  15=minor version
+									  0 patch version
+                  when writing the code you that specify to dev the min required version
+				                      include required_version = ">=1.15.0"
 
 
 
